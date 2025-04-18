@@ -12,4 +12,14 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/ui',
   ],
+  css: ['~/assets/css/main.css'],
+  ui: {
+    prefix: 'U',
+    fonts: true,
+    colorMode: true,
+    theme: {
+      colors: ['primary', 'secondary', 'success', 'info', 'warning', 'error'],
+      transitions: true,
+    },
+  },
 });
