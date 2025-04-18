@@ -1,59 +1,59 @@
 <template>
-  <header class="bg-white shadow h-20 lg:h-32">
-    <div class="flex items-center justify-between h-full">
-      <!-- Left: Logo + Text -->
-      <div class="flex items-center px-4 space-x-3">
-        <NuxtImg src="/logo.svg" alt="Logo" class="h-12 w-auto" />
-
-        <div class="leading-tight">
-          <p class="text-[8.29px] font-bold text-gray-800">LAMAN WEB RASMI</p>
-          <p class="text-sm text-right text-gray-800 leading-snug">
-            مجلس أڭام اسلام دان عادت استڤيدات ملايو ڤرليس
-          </p>
-          <p class="text-[8.29px] font-bold text-gray-800">
+  <header class="bg-white shadow h-20 lg:h-32 flex justify-between">
+    <!-- Left: Logo and Text -->
+    <div class="flex gap-3 items-center px-4">
+      <NuxtImg src="/logo.svg" alt="Logo" sizes="20vw" class="px-2" />
+      <div class="flex flex-col items-start gap-[1.5px]">
+        <p class="text-[8.3px] leading-[12px] font-bold text-black">
+          LAMAN WEB RASMI
+        </p>
+        <NuxtImg src="/header/jawi.svg" alt="Jawi" class="h-[15.5px]" />
+        <div>
+          <p class="text-[8.3px] leading-[12px] font-bold text-black">
             MAJLIS AGAMA ISLAM DAN ADAT ISTIADAT MELAYU PERLIS
           </p>
-          <p class="text-[8.29px] text-gray-800 italic">
+          <p class="text-[8px] leading-[9px] italic text-black">
             Perlis Islamic Religious Custom and Malay Council
           </p>
         </div>
       </div>
-
-      <!-- Right: Mobile Toggle Button with yellow bg -->
-      <div class="bg-yellow-400 h-full flex items-center px-4 md:hidden">
-        <button @click="toggleMenu">
-          <Icon
-            v-if="!isMenuOpen"
-            name="heroicons:bars-3-20-solid"
-            class="w-6 h-6 text-black"
-          />
-          <Icon
-            v-else
-            name="heroicons:x-mark-20-solid"
-            class="w-6 h-6 text-black"
-          />
-        </button>
-      </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <nav v-if="isMenuOpen" class="bg-gray-100 md:hidden">
-      <div class="px-4 py-4 flex flex-col space-y-4">
-        <NuxtLink to="/" class="text-gray-600 hover:text-blue-600"
-          >Home</NuxtLink
-        >
-        <NuxtLink to="/about" class="text-gray-600 hover:text-blue-600"
-          >About</NuxtLink
-        >
-        <NuxtLink to="/contact" class="text-gray-600 hover:text-blue-600"
-          >Contact</NuxtLink
-        >
-      </div>
-    </nav>
+    <!-- Right: Yellow toggle area -->
+    <div class="bg-yellow w-[80px] flex items-center justify-center md:hidden">
+      <button @click="toggleMenu">
+        <UIcon
+          v-if="!isMenuOpen"
+          mode="svg"
+          name="heroicons:bars-3-20-solid"
+          class="w-[24px] h-[24px] text-black"
+        />
+        <UIcon
+          v-else
+          mode="svg"
+          name="heroicons:x-mark-20-solid"
+          class="w-[24px] h-[24px] text-black"
+        />
+      </button>
+    </div>
   </header>
+
+  <!-- Mobile Menu -->
+  <nav v-if="isMenuOpen" class="bg-gray-100 md:hidden">
+    <div class="px-4 py-4 flex flex-col space-y-4">
+      <NuxtLink to="/" class="text-gray-600 hover:text-blue-600">Home</NuxtLink>
+      <NuxtLink to="/about" class="text-gray-600 hover:text-blue-600"
+        >About</NuxtLink
+      >
+      <NuxtLink to="/contact" class="text-gray-600 hover:text-blue-600"
+        >Contact</NuxtLink
+      >
+    </div>
+  </nav>
 </template>
 
 <script setup lang="ts">
+  import { NuxtImg } from '#components';
   import { ref } from 'vue';
 
   const isMenuOpen = ref(false);

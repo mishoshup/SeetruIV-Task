@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 
+@theme static {
+ 
+  --color-primary: #374151;
+  --color-yellow: #fdf600;
+}
+
 .container {
   max-width: 430px; /* Mobile */
   margin: 0 auto;
@@ -11,7 +17,7 @@
   .container {
     max-width: 768px; /* Tablet */
     .grid {
-      grid-template-columns: repeat(2, 1fr); /* Three columns */
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
     }
   }
 }
