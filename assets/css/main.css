@@ -2,31 +2,24 @@
 @import '@nuxt/ui';
 
 @theme static {
- 
   --color-primary: #374151;
   --color-yellow: #fdf600;
+  --color-blue: #0054a5;
+  --color-blue-50: #f6fbff;
+  --color-grey-50: #d7d9dc;
+  --color-grey-100: #374151;
 }
 
-.container {
-  max-width: 430px; /* Mobile */
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+@layer utilities {
+  .grid-cols-responsive {
+    @apply grid grid-cols-1;
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px; /* Tablet */
-    .grid {
-      grid-template-columns: repeat(2, 1fr); /* Two columns */
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
-}
 
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1400px; /* Desktop */
-    .grid {
-      grid-template-columns: repeat(3, 1fr); /* Three columns */
+    @media (min-width: 1400px) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
