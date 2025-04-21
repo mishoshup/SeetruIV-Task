@@ -1,15 +1,77 @@
 <template>
   <!-- Top Menu Dekstop -->
   <nav
-    class="relative hidden justify-start border-b bg-blue-50 px-[80px] shadow lg:flex"
+    class="relative hidden items-center justify-between border-b bg-blue-50 px-[80px] shadow lg:flex"
   >
+    <!-- Left Side: Social Links -->
     <div class="flex gap-[20px] py-4">
       <p class="text-grey-100 text-[14px] leading-[20px]">Ikuti kami di:</p>
       <div class="flex gap-[16px]">
-        <NuxtImg src="/header/iconFacebook.svg" class="h-auto w-[20px]" />
-        <NuxtImg src="/header/iconInstagram.svg" class="h-auto w-[20px]" />
-        <NuxtImg src="/header/iconTiktok.svg" class="h-auto w-[20px]" />
-        <NuxtImg src="/header/iconYoutube.svg" class="h-auto w-[20px]" />
+        <NuxtLink to="https://www.facebook.com/pages/MAiPS/556377977719809/">
+          <NuxtImg src="/header/iconFacebook.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+        <NuxtLink to="">
+          <NuxtImg src="/header/iconInstagram.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+        <NuxtLink to="https://www.tiktok.com/@maips_official">
+          <NuxtImg src="/header/iconTiktok.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+        <NuxtLink
+          to="https://www.youtube.com/channel/UCYxTBkPaelis0mMTpb0vrDQ/featured"
+        >
+          <NuxtImg src="/header/iconYoutube.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+      </div>
+    </div>
+
+    <!-- Right Side: Language + Warga MAIPs -->
+    <!-- TODO: Fix phone icon -->
+    <div class="flex items-center gap-[20px]">
+      <div class="flex items-center gap-[12px]">
+        <NuxtLink to="">
+          <NuxtImg src="/header/iconHelp.svg" class="h-auto w-[28px]" />
+        </NuxtLink>
+        <NuxtLink to="">
+          <NuxtImg src="/header/iconPhone.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+        <NuxtLink to="">
+          <NuxtImg src="/header/iconFeedback.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+        <NuxtLink to="">
+          <NuxtImg src="/header/iconSitemap.svg" class="h-auto w-[20px]" />
+        </NuxtLink>
+      </div>
+
+      <span aria-hidden="true" class="text-grey-100">|</span>
+
+      <!-- Language Dropdown -->
+      <div class="flex items-center gap-2">
+        <NuxtImg src="/header/iconFlagMY.svg" class="h-auto w-[20px]" />
+        <USelect
+          v-model="value"
+          variant="ghost"
+          :items="items"
+          :ui="{
+            trailingIcon: 'w-10 h-auto',
+            content: 'bg-blue-50 ring-1',
+            base: 'focus:bg-transparent',
+            item: 'text-black data-highlighted:text-white',
+          }"
+          class="text-grey-100 w-[70px] hover:cursor-pointer hover:bg-transparent focus:bg-transparent focus:text-black"
+        />
+      </div>
+
+      <span aria-hidden="true" class="text-grey-100">|</span>
+
+      <!-- Warga MAIPs Link -->
+      <div class="text-blue flex items-center gap-[8px] px-[16px]">
+        <NuxtImg src="/header/iconDoor.svg" class="h-auto w-[16px]" />
+        <NuxtLink
+          to="/warga-maips"
+          class="text-[14px] leading-[16px] font-semibold hover:underline"
+        >
+          Warga MAIPs
+        </NuxtLink>
       </div>
     </div>
   </nav>
@@ -157,6 +219,20 @@
 <script setup lang="ts">
   import { NuxtImg } from '#components';
   import { ref, onMounted } from 'vue';
+  import type { SelectItem } from '@nuxt/ui';
+
+  const items = ref([
+    {
+      label: 'BM',
+      value: 'malay',
+    },
+    {
+      label: 'EN',
+      value: 'english',
+    },
+  ] satisfies SelectItem[]);
+
+  const value = ref(items.value[0]?.value);
 
   const text = ref('LAMAN WEB RASMI');
   const updateText = () => {
