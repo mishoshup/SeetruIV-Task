@@ -1,4 +1,6 @@
 <template>
+  <!-- TODO: Modularize some of the snippets into their own components -->
+
   <!-- Top Menu Dekstop -->
   <nav
     class="relative hidden items-center justify-between border-b bg-blue-50 px-[80px] shadow lg:flex"
@@ -24,14 +26,17 @@
       </div>
     </div>
 
-    <!-- Right Side: Language + Warga MAIPs -->
+    <!-- Right Side: Icons + Language dropdown + Warga MAIPs -->
     <!-- TODO: Fix phone icon -->
     <div class="flex items-center gap-[20px]">
       <div class="flex items-center gap-[12px]">
         <NuxtLink to="">
+          <!-- Not sure why but saved svg size is smaller than other icons.
+          Thus the widht is 28px -->
           <NuxtImg src="/header/iconHelp.svg" class="h-auto w-[28px]" />
         </NuxtLink>
         <NuxtLink to="">
+          <!-- Phone icon is broken -->
           <NuxtImg src="/header/iconPhone.svg" class="h-auto w-[20px]" />
         </NuxtLink>
         <NuxtLink to="">
@@ -87,7 +92,7 @@
         src="logo.svg"
         alt="Logo"
         sizes="20vw"
-        class="h-auto w-auto lg:h-[93px]"
+        class="sm:h-auto sm:w-auto lg:h-[93px]"
       />
       <div
         class="flex flex-col items-start gap-[2.2px] md:gap-[2.56px] lg:gap-[4px]"
@@ -121,7 +126,7 @@
       </div>
     </div>
 
-    <!-- Right: Yellow toggle area (mobile & tablet) -->
+    <!-- Right: Hamburger Menu (mobile & tablet) -->
     <div class="bg-yellow flex w-[80px] items-center justify-center lg:hidden">
       <button @click="toggleMenu">
         <UIcon
@@ -143,10 +148,18 @@
     <div class="relative top-4 right-[95px] hidden lg:block">
       <NuxtLink to="/zakat" aria-label="Pakat-Pakat Mai Kita Berzakat">
         <NuxtImg
-          src="/header/zakat-button.svg"
+          src="/header/zakat-button.png"
           alt="Zakat Button"
           sizes="lg:240px"
           class="transition-scale h-auto w-auto max-w-[240px] object-contain transition-opacity hover:scale-105 hover:opacity-90"
+          :placeholder="
+            zakatButtonImg(`/header/zakat-button.png`, {
+              h: 100,
+              f: 'png',
+              blur: 1,
+              q: 50,
+            })
+          "
         />
       </NuxtLink>
     </div>
@@ -158,10 +171,11 @@
       src="/header/kerawang.png"
       alt="Kerawang"
       class="h-auto w-screen object-contain"
+      :placeholder="[auto, screen]"
     />
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- Hamburger Menu if open -->
   <nav v-if="isMenuOpen" class="bg-blue lg:hidden">
     <div class="flex flex-col space-y-4 px-4 py-4">
       <NuxtLink to="/" class="hover:text-yellow text-white">Utama</NuxtLink>
@@ -221,6 +235,10 @@
   import { ref, onMounted } from 'vue';
   import type { SelectItem } from '@nuxt/ui';
 
+  // Zakat button placeholder
+  const zakatButtonImg = useImage();
+
+  // Language selector dropdown
   const items = ref([
     {
       label: 'BM',
@@ -232,13 +250,14 @@
     },
   ] satisfies SelectItem[]);
 
+  // For changing header text
   const value = ref(items.value[0]?.value);
 
   const text = ref('LAMAN WEB RASMI');
   const updateText = () => {
-    if (window.innerWidth >= 1400) {
+    if (window.innerWidth >= 1024) {
       text.value = 'LAMAN WEB RASMI';
-    } else if (window.innerWidth >= 768) {
+    } else if (window.innerWidth >= 640) {
       text.value = 'LAMAN RASMI MAIPs';
     } else {
       text.value = 'LAMAN WEB RASMI';
