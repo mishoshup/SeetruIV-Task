@@ -73,12 +73,12 @@
           class="custom-next border border-white bg-transparent"
         />
       </div>
-      
     </div>
-    
   </section>
-  <div class="relative px-[18px] h-[44px] bg-primary-800">
-    <NewsTicker text="Waktu Operasi Kaunter MAIPs: (Isnin-Khamis) Pagi 08:30am- 01:00pm, Rehat 01:00pm-02:00pm, Petang 02:00pm- 04:30pm (Jumaat) Pagi 08:30am- 12:15pm, Rehat 12:15pm-02:45pm, Petang 02:45pm- 04:30pm (Sabtu dan Ahad tutup) | Wakaf Tunai MAIPs - Sumbangan anda boleh disalurkan ke akaun Bank Islam 09010010063983 | Iklan Tender MAIPs- Mohon Klick pada ruangan iklan untuk info lanjut | Dimaklumkan bahawa nombor talian MAIPs 04-9794439 tidak dapat digunakan sementara waktu bagi kerja-kerja pembaikan oleh TM. Nombor yang boleh dihubungi: 04-9772780, 04-9782784, 04-9772781, 04-9775779. Pelanggan juga boleh berhubung melalui PM di laman Facebook Majlis Agama Islam dan Adat Istiadat Melayu Perlis (MAIPs) atau e-mel korporat@maips.gov.my. Harap maklum." />
+  <div class="bg-primary-800 relative h-[44px] px-[18px]">
+    <NewsTicker
+      text="Waktu Operasi Kaunter MAIPs: (Isnin-Khamis) Pagi 08:30am- 01:00pm, Rehat 01:00pm-02:00pm, Petang 02:00pm- 04:30pm (Jumaat) Pagi 08:30am- 12:15pm, Rehat 12:15pm-02:45pm, Petang 02:45pm- 04:30pm (Sabtu dan Ahad tutup) | Wakaf Tunai MAIPs - Sumbangan anda boleh disalurkan ke akaun Bank Islam 09010010063983 | Iklan Tender MAIPs- Mohon Klick pada ruangan iklan untuk info lanjut | Dimaklumkan bahawa nombor talian MAIPs 04-9794439 tidak dapat digunakan sementara waktu bagi kerja-kerja pembaikan oleh TM. Nombor yang boleh dihubungi: 04-9772780, 04-9782784, 04-9772781, 04-9775779. Pelanggan juga boleh berhubung melalui PM di laman Facebook Majlis Agama Islam dan Adat Istiadat Melayu Perlis (MAIPs) atau e-mel korporat@maips.gov.my. Harap maklum."
+    />
   </div>
 </template>
 

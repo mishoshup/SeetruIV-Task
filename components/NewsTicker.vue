@@ -1,6 +1,8 @@
 <!-- components/NewsTicker.vue -->
 <template>
-  <div class="news-ticker relative flex items-center justify-center h-full w-auto overflow-hidden bg-primary-800 text-white">
+  <div
+    class="news-ticker bg-primary-800 relative flex h-full w-auto items-center justify-center overflow-hidden text-white"
+  >
     <div ref="ticker" class="ticker-content absolute text-sm whitespace-nowrap">
       {{ text }}
     </div>
