@@ -29,18 +29,12 @@
     <!-- Carousel Overlay -->
     <div class="absolute inset-0 z-10 flex items-center justify-center">
       <swiper
-        :modules="[Navigation, Pagination, Mousewheel, Keyboard]"
-        :navigation="{
-          nextEl: '#next-button',
-          prevEl: '#prev-button',
-          disabledClass: 'swiper-button-disabled',
-          hiddenClass: 'swiper-button-hidden',
-        }"
+        :modules="[Navigation, Pagination, Keyboard]"
+        :navigation="swiperNavigation"
         :pagination="true"
-        :mousewheel="true"
         :keyboard="true"
         :loop="true"
-        class="mySwiper h-full w-full"
+        class="heroSwiper h-full w-full"
       >
         <SwiperSlide v-for="(slide, index) in slides" :key="index">
           <div
@@ -62,40 +56,50 @@
 
       <!-- Custom Navigation Buttons at Bottom Center -->
       <div
-        class="absolute z-30 bottom-6 flex w-full items-center justify-between px-4"
+        class="absolute bottom-6 z-40 flex w-full items-center justify-between px-4"
       >
-        <button
-          class="custom-prev rounded-full bg-white/20 px-4 py-2 text-white hover:bg-white/40"
-          id="prev-button"
-          aria-label="Previous Slide"
-        >
-          
-        </button>
-        <button
-          class="custom-next rounded-full bg-white/20 px-4 py-2 text-white hover:bg-white/40"
-          id="next-button"
-          aria-label="Next Slide"
-        >
-          
-        </button>
+        <UButton
+          icon="i-lucide-chevron-left"
+          size="xl"
+          color="neutral"
+          variant="outline"
+          class="custom-prev border border-white bg-transparent"
+        />
+        <UButton
+          icon="i-lucide-chevron-right"
+          size="xl"
+          color="neutral"
+          variant="outline"
+          class="custom-next border border-white bg-transparent"
+        />
       </div>
+      
     </div>
+    
   </section>
+  <div class="relative px-[18px] h-[44px] bg-primary-800">
+    <NewsTicker text="Waktu Operasi Kaunter MAIPs: (Isnin-Khamis) Pagi 08:30am- 01:00pm, Rehat 01:00pm-02:00pm, Petang 02:00pm- 04:30pm (Jumaat) Pagi 08:30am- 12:15pm, Rehat 12:15pm-02:45pm, Petang 02:45pm- 04:30pm (Sabtu dan Ahad tutup) | Wakaf Tunai MAIPs - Sumbangan anda boleh disalurkan ke akaun Bank Islam 09010010063983 | Iklan Tender MAIPs- Mohon Klick pada ruangan iklan untuk info lanjut | Dimaklumkan bahawa nombor talian MAIPs 04-9794439 tidak dapat digunakan sementara waktu bagi kerja-kerja pembaikan oleh TM. Nombor yang boleh dihubungi: 04-9772780, 04-9782784, 04-9772781, 04-9775779. Pelanggan juga boleh berhubung melalui PM di laman Facebook Majlis Agama Islam dan Adat Istiadat Melayu Perlis (MAIPs) atau e-mel korporat@maips.gov.my. Harap maklum." />
+  </div>
 </template>
 
 <script setup lang="ts">
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-
+  import NewsTicker from '~/components/NewsTicker.vue';
+  import { Swiper, SwiperSlide } from 'swiper/vue'; // Import Swiper Vue.js components
+  import { Navigation, Pagination, Keyboard } from 'swiper/modules'; // import required swiper modules
   import 'swiper/css';
   import 'swiper/css/pagination';
-  import 'swiper/css/navigation';
-
-  // import required modules
-  import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
   const heroImage = useImage();
 
+  // Custom swiper confisg
+  const swiperNavigation = ref({
+    nextEl: '.custom-next',
+    prevEl: '.custom-prev',
+    disabledClass: 'swiper-button-disabled',
+    hiddenClass: 'swiper-button-hidden',
+  });
+
+  // Swiper contents
   const slides = [
     {
       title: 'Selamat Datang Ke Laman Web Rasmi MAIPs',
@@ -111,10 +115,3 @@
     },
   ];
 </script>
-
-<style scoped>
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: white;
-  }
-</style>
