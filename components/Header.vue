@@ -111,7 +111,7 @@
             class="h-[15.5px] md:h-[28px]"
           />
         </picture>
-        <div class="block md:hidden lg:block lg:flex lg:flex-col lg:gap-[2px]">
+        <div class="flex flex-col md:hidden lg:flex lg:gap-[2px]">
           <p
             class="text-[8.3px] leading-[12px] font-bold text-black lg:text-[15px] lg:leading-[1rem]"
           >
