@@ -79,8 +79,11 @@ npm run preview
 
 ```
 .
+├── assets/             # CSS folder
+├── components/         # Components folder
 ├── public/             # Static assets
-├── server/             # API routes, server middleware, etc.
+├── .prettierignore     # Prettier ignored files
+├── .prettierrc         # Prettier formatting config
 ├── .gitignore          # Git ignored files
 ├── app.vue             # Root Vue component
 ├── eslint.config.mjs   # ESLint config
@@ -88,30 +91,46 @@ npm run preview
 ├── package-lock.json   # Lockfile
 ├── package.json        # Project metadata and scripts
 ├── README.md           # This file
+├── tailwind.config.ts  # Tailwind config
 └── tsconfig.json       # TypeScript config
 ```
 
 ## Approach and Design Decisions
 
-<!-- - **Framework**: Chose Nuxt.js to align with Seetru Studio’s tech stack, leveraging built-in routing and SSR.
+- **Framework**: Chose Nuxt.js to align with Seetru Studio’s future project.
 - **Component Structure**: Built modular components (Header, Hero, Footer, etc.) for maintainability.
 - **Styling**: Used Tailwind CSS for accurate, responsive design based on Figma specs.
 - **Responsive Design**: Mobile-first design approach using Figma's breakpoints: 430px (mobile), 768px (tablet), 1400px (desktop).
-- **Interactivity**: Added mobile menu toggle using Vue's `ref` and `v-if`/`v-show` with transitions.
-- **Design Integration**: Extracted colors, fonts, and spacing directly from the Figma file. -->
+- **Design Integration**: Extracted colors, fonts, and spacing directly from the Figma file.
 
 ## Responsive Design Details
 
-<!-- - **Mobile (430px)**: Stacked layout, touch-friendly buttons
+- **Mobile (430px)**: Stacked layout, touch-friendly buttons
 - **Tablet (768px)**: Grid layout adjustments for medium screens
-- **Desktop (1400px)**: Full-width layouts with proper spacing -->
+- **Desktop (1400px)**: Full-width layouts with proper spacing
 
 ## Challenges and Solutions
 
-<!-- - **Challenge**: Matching exact spacing from Figma
+- **Challenge**: Matching exact spacing from Figma
   - **Solution**: Used Figma ruler + Tailwind spacing classes for precision
-- **Challenge**: Smooth mobile menu toggle
-  - **Solution**: Vue reactivity + CSS transitions -->
+
+- **Challenge**: Limited early experience with frontend layout and CSS
+  - **Solution**: As this was one of my first frontend projects, I initially lacked deep knowledge of layout techniques and CSS. To overcome this, I focused on understanding and strengthening my CSS skills, which allowed me to better align the implementation with the Figma design’s layout requirements.
+
+- **Challenge**: Customizing components from a library
+  - **Solution**: Adapting library components to fit the design pushed me to dive into the documentation more thoroughly. This gave me valuable practice in understanding how these libraries work under the hood, boosting my confidence in working with third-party tools.
+
+## Reflection
+
+I'm grateful for the opportunity to work on this task, as it gave me a hands-on chance to grow as a frontend developer. One key lesson I took away is the importance of researching tools and libraries thoroughly at the start. I didn’t dive deep enough into options like Vue.js component libraries early on, which made it harder to decide on the best components later in the process. In future projects, I’ll prioritize upfront research to streamline decision-making.
+
+I also learned how crucial good planning and component structure are for maintainability. At first, I underestimated the complexity of certain sections like the header and bundled too much logic into a single component. When I needed to make changes later, it was challenging and risked breaking other elements. Going forward, I’ll break things down into smaller, modular components earlier to make iteration smoother.
+
+Overall, this task helped me improve both technically and in how I approach building scalable, readable code — lessons I’m excited to carry into future work.
+
+## Next Steps
+
+For my next phase, I plan to continue developing this project to see how far I can push it as a personal growth exercise. I want to build on what I’ve already created, experimenting with adding more animations to make the interface more dynamic and engaging. If permitted, I’d love to evolve this into a standout piece for my personal portfolio, demonstrating my ability to enhance functionality and design while deepening my frontend skills.
 
 ## Contact
 
@@ -124,10 +143,10 @@ For questions:
 
 ## Notes
 
-<!-- - This project was built as part of the Seetru Studio hiring process.
+- This project was built as part of the Seetru Studio hiring process.
 - All designs were implemented according to Figma specs.
-- Feedback and improvements are welcome! -->
+- Feedback and improvements are welcome!
 
 ---
 
-**Thank you for reviewing my submission. 🙏**
+**Thank you for reviewing my submission.**
